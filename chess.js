@@ -71,7 +71,6 @@ const chess = {
                     cell.id = id + '@' + y[iy - 1] + x[ix - 1];
                 }
                 row.appendChild(cell);
-
             }
         }
         return this;
@@ -84,19 +83,17 @@ const chess = {
             fig.innerHTML = this.figures[ii].char;
             fig.className = 'fig f-' + this.figures[ii].color;
             cell.appendChild(fig);
-
         }
     }
 }
 
 window.onload = function () {
-    let boardDiv1 = document.getElementById("board-1");
-    let board1 = chess.createBoard('1', x_board, y_board);
-    boardDiv1.appendChild(board1.boardHTML);
+    // задание 1
+    document.getElementById("board-1").appendChild(chess.createBoard('1', x_board, y_board).boardHTML);
 
+    // задание 2
     let boardDiv2 = document.getElementById("board-2");
     let board2 = chess.createBoard('2', x_board, y_board);
     boardDiv2.appendChild(board2.boardHTML);
     board2.initFigures(whiteFigures.concat(blackFigures));
-
 }
