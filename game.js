@@ -175,7 +175,8 @@ const game = {
       ${this.getOptions(question)}
     `;
 
-    return prompt(questionText);
+    let ans = +prompt(questionText);
+    return question.options[ans-1].nextText;      // <+++++ BUG FIX HERE!!
   },
 
   getOptions(question) {
