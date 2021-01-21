@@ -1,0 +1,43 @@
+table.board {
+    border: 1px dashed black;
+    border-spacing: 3px;
+    background-color: lightgray;
+}
+
+td {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    text-align: center; 
+    vertical-align: middle;
+}
+
+td.head-x, td.head-y, td.head-xy {
+    border: none;
+}
+
+td.black {
+    background-color: black;
+}
+
+td.white {
+    background-color: white;
+}
+
+div.fig {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px dashed transparent;
+    display: inline-block;
+}
+
+div.f-black {
+    background-color: #333;
+    color: white;
+}
+
+div.f-white {
+    background-color: #ccc;
+    color: black;
+}
