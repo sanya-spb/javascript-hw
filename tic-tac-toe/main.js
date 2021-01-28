@@ -3,14 +3,32 @@ const equals3 = (a, b, c) => {
 }
 
 const checkWinner = (model) => {
-  let winner = null;
+  let winner = 'XO';
+
+  //*********************************************************** task1
+  // pat                                        
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (model[i][j] == '') {
+        winner = null;
+        break
+      }
+    }
+    if (winner == null) {
+      break
+    }
+  }
+  if (winner == 'XO') {
+    return winner
+  }
+  //*********************************************************** task1
 
   // horizontal
   for (let i = 0; i < 3; i++) {
     if (equals3(model[i][0], model[i][1], model[i][2])) {
       winner = model[i][0];
     }
-  }  
+  }
 
   // vertical
   for (let i = 0; i < 3; i++) {
