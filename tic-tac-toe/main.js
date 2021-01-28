@@ -81,13 +81,18 @@ const game = () => {
     const column = e.target.dataset.index;
 
     // 2. check if td assigned
-
-    model[row][column] = currentPlayer;
-    e.target.innerHTML = currentPlayer;
+    //*********************************************************** task2
+    if (model[row][column] == '') {
+      model[row][column] = currentPlayer;
+      e.target.innerHTML = currentPlayer;
+    }
+    //*********************************************************** task2
 
     const winner = checkWinner(model);
-    if (winner) {
+    if (winner && winner != 'XO') {
       alert(`Winner: ${winner}`);
+    } else if (winner && winner == 'XO') {
+      alert(`There are no losers!`);
     }
     // 1. tie
 
