@@ -124,6 +124,7 @@ function checkForFruit() {
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
     numSegments++;
+    updateFruitCoordinates()    // <------------------- BUG 2
   }
 }
 
@@ -146,7 +147,7 @@ function keyPressed() {
       }
       break;
     case 76:
-      if (direction !== 'right') {
+      if (direction !== 'left') { // <------------------- BUG 1
         direction = 'right';
       }
       break;
