@@ -1,12 +1,15 @@
-const equals3 = (a, b, c) => {
+
+function equals3(a, b, c) {
   return (a == b && b == c && a != '');
 }
 
-const checkWinner = (model) => {
+function equals3_v2() {
+  return (a == b && b == c && a != '');
+}
+
+function checkWinner(model) {
   let winner = 'XO';
 
-  //*********************************************************** task1
-  // pat                                        
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if (model[i][j] == '') {
@@ -21,18 +24,25 @@ const checkWinner = (model) => {
   if (winner == 'XO') {
     return winner
   }
-  //*********************************************************** task1
 
   // horizontal
   for (let i = 0; i < 3; i++) {
-    if (equals3(model[i][0], model[i][1], model[i][2])) {
+    a = model[i][0];
+    b = model[i][1];
+    c = model[i][2];
+    let equals3_func = equals3_v2();
+    if (equals3_func) {
       winner = model[i][0];
     }
   }
 
   // vertical
   for (let i = 0; i < 3; i++) {
-    if (equals3(model[0][i], model[1][i], model[2][i])) {
+    a = model[0][i];
+    b = model[1][i];
+    c = model[2][i];
+    let equals3_func = equals3_v2();
+    if (equals3_func) {
       winner = model[0][i];
     }
   }
@@ -80,13 +90,10 @@ const game = () => {
     const row = e.target.parentNode.dataset.index;
     const column = e.target.dataset.index;
 
-    // 2. check if td assigned
-    //*********************************************************** task2
     if (model[row][column] == '') {
       model[row][column] = currentPlayer;
       e.target.innerHTML = currentPlayer;
     }
-    //*********************************************************** task2
 
     const winner = checkWinner(model);
     if (winner && winner != 'XO') {
